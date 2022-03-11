@@ -36,7 +36,7 @@ def exp_config_display_widegt(path):
     files = get_all_files(path)
     images = [f for f in files if f.endswith('jpg') or f.endswith('png') or f.endswith('jpeg') or f.endswith('bmp')]
     config_json = [f for f in files if f == 'config.json']
-    sub_info = {'message' : 'No config file found, ignoring names (create as {names : [__] })'}
+    sub_info = {'message' : 'No config file found, ignoring names (create as {names : [__] ... })'}
     
     if len(config_json) > 0:
         with open(os.path.join(path, config_json[0]), 'r+') as f:
@@ -88,6 +88,7 @@ if __name__ == '__main__':
     selected_values = []
     labels = info[config_info]['names'] if info[files_config_present] else None
     init_val = info[config_info]['init'] if info[files_config_present] and 'init' in info[config_info] else None
+    primary_index =  info[config_info]['primary_index'] if info[files_config_present] and 'primary_index' in info[config_info] else None
     with st.expander("options"):
         for i, v in enumerate(values):
             label = labels[i] if labels else f'variable {i+1}'
