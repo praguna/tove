@@ -1,0 +1,1 @@
+streamlit cache clear && streamlit run main.py --server.port 8081 -- --data ../bmn_vis 
