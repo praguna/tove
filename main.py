@@ -71,6 +71,13 @@ def exp_config_display_widegt(path):
 
     st.sidebar.write(info)
 
+    val = st.sidebar.text_area('Edit Configuration' , json.dumps(info, sort_keys=True, indent=4), height=200)
+    try:
+        x = json.loads(val)
+        info = x
+    except Exception:
+        pass
+
     return info, images
 
 
